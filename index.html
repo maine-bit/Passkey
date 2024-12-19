@@ -5,7 +5,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Password</title>
 </head>
+
 <body>
+
+                <!-- Password Overlay -->
+            <div id="passwordOverlay">
+                <div>
+                <h2>The Key is your Favorite Pet</h2>
+                <input type="password" id="passwordInput" placeholder="Keyword...">
+                <br>
+                <button onclick="checkPassword()">Unlock</button>
+                <p id="errorMessage" style="color:red; display:none;">Oops! Incorrect key. Try again.</p>
+                </div>
+            </div>
+
+            <!-- The rest of the website content -->
+            <div class="passkey" style="display:none;" id="mainContent">
 
             <h3>The key is a combination of letters and numbers. <br></h3>
 
@@ -23,7 +38,27 @@
                     font-family: 'Courier New', Courier, monospace;
 
                 }
+
+                button{
+                    margin-top: 5px;
+                    float: center;
+                }
             </style>
+
+            <script>
+
+                    function checkPassword() {
+                        var password = document.getElementById("passwordInput").value;
+                        var correctPassword = "goat"; // Set the correct password here
+                        
+                        if (password === correctPassword) {
+                        document.getElementById("passwordOverlay").style.display = "none";
+                        document.getElementById("mainContent").style.display = "block";
+                        } else {
+                        document.getElementById("errorMessage").style.display = "block";
+                        }
+                    }
+            </script>
     
 </body>
 </html>
